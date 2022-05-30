@@ -1,0 +1,183 @@
+{
+  
+  "name": "Boba Community TL",
+  "timestamp": "2022-05-13T20:20:48.849Z",
+  "version": {
+    "major": 15,
+    "minor": 0,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0xa18bF3994C0Cc6E3b63ac420308E5383f53120D7/logo.png",
+  "keywords": [
+    "oolongswap",
+    "boba",
+    "community"
+  ],
+  "tokens": [
+    {
+      "name": "AlphaCyber",
+      "address": "0x641e3C61DBFc5C9eD8f620eb474271cd4439f7d5",
+      "symbol": "aCYBER",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x641e3C61DBFc5C9eD8f620eb474271cd4439f7d5/logo.png"
+    },
+    {
+      "name": "Banana",
+      "address": "0xc67b9B1B0557aeAfA10AA1fFa1d7c87087a6149E",
+      "symbol": "BANA",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0xc67b9B1B0557aeAfA10AA1fFa1d7c87087a6149E/logo.png"
+    },
+    {
+      "name": "BobaDoge",
+      "address": "0x121636C43E96D97AB00B6c6994cDDEBEf27dE1C7",
+      "symbol": "BDoge",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x121636C43E96D97AB00B6c6994cDDEBEf27dE1C7/logo.png"
+    },
+    {
+      "name": "BoringDAO",
+      "address": "0x017Ff87AB312301aDE54f7cf9Cc5AEA28C9De024",
+      "symbol": "BORING",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x017Ff87AB312301aDE54f7cf9Cc5AEA28C9De024/logo.png"
+    },
+    {
+      "name": "Brewery",
+      "address": "0x3A93bD0fA10050d206370eeA53276542A105C885",
+      "symbol": "BRE",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x3A93bD0fA10050d206370eeA53276542A105C885/logo.png"
+    },
+    {
+      "name": "BobaTeaInu",
+      "address": "0x9c3a582A678BE0B0E954d7a5C07b0C7Eb8EF1e03",
+      "symbol": "BTEA",
+      "decimals": 9,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x9c3a582A678BE0B0E954d7a5C07b0C7Eb8EF1e03/logo.png"
+    },
+    {
+      "name": "Governance OHM",
+      "address": "0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95",
+      "symbol": "gOHM",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0xd22C0a4Af486C7FA08e282E9eB5f30F9AaA62C95/logo.png"
+    },
+    {
+      "name": "Boba WAGMI v3 Oolong Option",
+      "address": "0x70bf3c5B5d80C4Fece8Bde0fCe7ef38B688463d4",
+      "symbol": "oloWAGMIV3",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x70bf3c5B5d80C4Fece8Bde0fCe7ef38B688463d4/logo.png"
+    },
+    {
+      "name": "Shibui",
+      "address": "0xF08AD7C3f6b1c6843ba027AD54Ed8DDB6D71169b",
+      "symbol": "SHIBUI",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0xF08AD7C3f6b1c6843ba027AD54Ed8DDB6D71169b/logo.png"
+    },
+    {
+      "name": "UniDex",
+      "address": "0x375488F097176507e39B9653b88FDc52cDE736Bf",
+      "symbol": "UNIDX",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x375488F097176507e39B9653b88FDc52cDE736Bf/logo.png"
+    },
+    {
+      "name": "Boba WAGMI v0 Option",
+      "address": "0x8493C4d9Cd1a79be0523791E3331c78Abb3f9672",
+      "symbol": "WAGMIV0",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x8493C4d9Cd1a79be0523791E3331c78Abb3f9672/logo.png"
+    },
+    {
+      "name": "Boba WAGMI v1 Option",
+      "address": "0xCe055Ea4f29fFB8bf35E852522B96aB67Cbe8197",
+      "symbol": "WAGMIV1",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0xCe055Ea4f29fFB8bf35E852522B96aB67Cbe8197/logo.png"
+    },
+    {
+      "name": "Boba WAGMI v2 Oolong Option",
+      "address": "0x49a3e4a1284829160f95eE785a1A5FfE2DD5Eb1D",
+      "symbol": "WAGMIV2",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x49a3e4a1284829160f95eE785a1A5FfE2DD5Eb1D/logo.png"
+    },
+    {
+      "name": "Boba WAGMI v3 Option",
+      "address": "0xC6158B1989f89977bcc3150fC1F2eB2260F6cabE",
+      "symbol": "WAGMIV3",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0xC6158B1989f89977bcc3150fC1F2eB2260F6cabE/logo.png"
+    },
+    {
+      "name": "Zencha",
+      "address": "0x7445Efc8A6F1279434133408BEdeb6Eb4d1537Ab",
+      "symbol": "ZENC",
+      "decimals": 18,
+      "chainId": 288,
+      "logoURI": "https://raw.githubusercontent.com/OolongSwap/token-logos/main/288/0x7445Efc8A6F1279434133408BEdeb6Eb4d1537Ab/logo.png"
+    },
+    {
+      "name": "Dai Stablecoin",
+      "address": "0xf74195Bb8a5cf652411867c5C2C5b8C2a402be35",
+      "symbol": "DAI",
+      "decimals": 18,
+      "chainId": 288
+    },
+    {
+      "name": "USD Coin",
+      "address": "0x66a2A913e447d6b4BF33EFbec43aAeF87890FBbc",
+      "symbol": "USDC",
+      "decimals": 6,
+      "chainId": 288
+    },
+    {
+      "name": "Tether USD",
+      "address": "0x5DE1677344D3Cb0D7D465c10b72A8f60699C062d",
+      "symbol": "USDT",
+      "decimals": 6,
+      "chainId": 288
+    },
+    {
+      "name": "Binance-Peg BUSD Token",
+      "address": "0x461d52769884ca6235B685EF2040F47d30C94EB5",
+      "symbol": "BUSD",
+      "decimals": 18,
+      "chainId": 288
+    },
+    {
+      "name": "Boba Token",
+      "address": "0xa18bF3994C0Cc6E3b63ac420308E5383f53120D7",
+      "symbol": "BOBA",
+      "decimals": 18,
+      "chainId": 288
+    },
+    {
+      "name": "Ether",
+      "address": "0x4200000000000000000000000000000000000006",
+      "symbol": "ETH",
+      "decimals": 18,
+      "chainId": 288
+    }
+  
+  ]
+  }
+   
