@@ -49,7 +49,10 @@ const lookForDualTrade = async () => {
     targetRoute = searchForRoutes();
   }
   try {
+    console.log(`getting trade size...`)
+    console.log(targetRoute.token1)
     let tradeSize = balances[targetRoute.token1].balance;
+    // console(`trade size initialized...`)
     const amtBack = await ultima.estimateDualDexTrade(targetRoute.router1, targetRoute.router2, targetRoute.token1, targetRoute.token2, tradeSize);
     const multiplier = ethers.BigNumber.from(config.minBasisPointsPerTrade+10000);
     const sizeMultiplied = tradeSize.mul(multiplier);
