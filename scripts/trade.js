@@ -49,21 +49,27 @@ const lookForDualTrade = async () => {
     targetRoute = searchForRoutes();
   }
   try {
-    console.log(`getting trade size...`)
-    console.log(targetRoute.token1)
+    //console.log(`getting trade size...`)
+    // console.log(targetRoute.token1)
     let tradeSize = balances[targetRoute.token1].balance;
-    // console(`trade size initialized...`)
+    // console.log(`bal: `,tradeSize)
+    // console.log(`trade size initialized...`)
+
     const amtBack = await ultima.estimateDualDexTrade(targetRoute.router1, targetRoute.router2, targetRoute.token1, targetRoute.token2, tradeSize);
     const multiplier = ethers.BigNumber.from(config.minBasisPointsPerTrade+10000);
     const sizeMultiplied = tradeSize.mul(multiplier);
     const divider = ethers.BigNumber.from(10000);
     const profitTarget = sizeMultiplied.div(divider);
     if (!config.routes.length > 0) {
+      console.log(`route error...`)
       fs.appendFile(`./data/${network}RouteLog.txt`, `["${targetRoute.router1}","${targetRoute.router2}","${targetRoute.token1}","${targetRoute.token2}"],`+"\n", function (err) {});
     }
     if (amtBack.gt(profitTarget)) {
+      console.log(`profitable trade...`)
       await dualTrade(targetRoute.router1,targetRoute.router2,targetRoute.token1,targetRoute.token2,tradeSize);
     } else {
+      console.log(`still looking...`)
+      await new Promise(r => setTimeout(r, 10000));
       await lookForDualTrade();
     }
   } catch (e) {
@@ -73,6 +79,7 @@ const lookForDualTrade = async () => {
 }
 
 const dualTrade = async (router1,router2,baseToken,token2,amount) => {
+  console.log(`found a trade`)
   if (inTrade === true) {
     await lookForDualTrade();	
     return false;

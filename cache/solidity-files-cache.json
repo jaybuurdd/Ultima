@@ -150,8 +150,8 @@
       ]
     },
     "C:\\Users\\jaybu\\Documents\\GMU\\Summer-22\\CS321\\Ultima\\contracts\\Ultima.sol": {
-      "lastModificationDate": 1653647098525,
-      "contentHash": "6b40e01c4f13280d025e0f4c670a1f10",
+      "lastModificationDate": 1655788941477,
+      "contentHash": "07b1949ccb621d48d754e19bacdc4112",
       "sourceName": "contracts/Ultima.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -223,6 +223,41 @@
       ],
       "artifacts": [
         "WETH9"
+      ]
+    },
+    "C:\\Users\\jaybu\\Documents\\GMU\\Summer-22\\CS321\\Ultima\\contracts\\Token.sol": {
+      "lastModificationDate": 1655653878885,
+      "contentHash": "bb9a1989eb2b110fa4e189deab259da0",
+      "sourceName": "contracts/Token.sol",
+      "solcConfig": {
+        "version": "0.7.6",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.0"
+      ],
+      "artifacts": [
+        "Token"
       ]
     }
   }

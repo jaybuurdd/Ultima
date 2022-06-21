@@ -9,6 +9,11 @@ module.exports = {
     boba: {
       url: `https://mainnet.boba.network`,
       accounts: [process.env.privateKey],
+    },
+    hardhat: {
+      forking: {
+        url: "https://eth-mainnet.alchemyapi.io/v2/xNkMYj2ahxSm67_Y-A84Ifv_Z_E93GBx",
+      }
     }
   },
   solidity: {

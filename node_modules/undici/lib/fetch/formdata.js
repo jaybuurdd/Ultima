@@ -1,11 +1,13 @@
 'use strict'
 
-const { isBlobLike, isFileLike, toUSVString } = require('./util')
+const { isBlobLike, isFileLike, toUSVString, makeIterator } = require('./util')
 const { kState } = require('./symbols')
 const { File, FileLike } = require('./file')
 const { Blob } = require('buffer')
 
 class FormData {
+  static name = 'FormData'
+
   constructor (...args) {
     if (args.length > 0 && !(args[0]?.constructor?.name === 'HTMLFormElement')) {
       throw new TypeError(
@@ -182,51 +184,70 @@ class FormData {
   }
 
   get [Symbol.toStringTag] () {
-    if (!(this instanceof FormData)) {
-      throw new TypeError('Illegal invocation')
-    }
-
     return this.constructor.name
   }
 
-  * entries () {
+  entries () {
     if (!(this instanceof FormData)) {
       throw new TypeError('Illegal invocation')
     }
 
-    for (const pair of this) {
-      yield pair
-    }
+    return makeIterator(
+      makeIterable(this[kState], 'entries'),
+      'FormData'
+    )
   }
 
-  * keys () {
+  keys () {
     if (!(this instanceof FormData)) {
       throw new TypeError('Illegal invocation')
     }
 
-    for (const [key] of this) {
-      yield key
-    }
+    return makeIterator(
+      makeIterable(this[kState], 'keys'),
+      'FormData'
+    )
   }
 
-  * values () {
+  values () {
     if (!(this instanceof FormData)) {
       throw new TypeError('Illegal invocation')
     }
 
-    for (const [, value] of this) {
-      yield value
-    }
+    return makeIterator(
+      makeIterable(this[kState], 'values'),
+      'FormData'
+    )
   }
 
-  * [Symbol.iterator] () {
-    // The value pairs to iterate over are this’s entry list’s entries with
-    // the key being the name and the value being the value.
-    for (const { name, value } of this[kState]) {
-      yield [name, value]
+  /**
+   * @param {(value: string, key: string, self: FormData) => void} callbackFn
+   * @param {unknown} thisArg
+   */
+  forEach (callbackFn, thisArg = globalThis) {
+    if (!(this instanceof FormData)) {
+      throw new TypeError('Illegal invocation')
+    }
+
+    if (arguments.length < 1) {
+      throw new TypeError(
+        `Failed to execute 'forEach' on 'FormData': 1 argument required, but only ${arguments.length} present.`
+      )
+    }
+
+    if (typeof callbackFn !== 'function') {
+      throw new TypeError(
+        "Failed to execute 'forEach' on 'FormData': parameter 1 is not of type 'Function'."
+      )
+    }
+
+    for (const [key, value] of this) {
+      callbackFn.apply(thisArg, [value, key, this])
     }
   }
 }
+
+FormData.prototype[Symbol.iterator] = FormData.prototype.entries
 
 function makeEntry (name, value, filename) {
   // To create an entry for name, value, and optionally a filename, run these
@@ -245,8 +266,8 @@ function makeEntry (name, value, filename) {
   // object, representing the same bytes, whose name attribute value is "blob".
   if (isBlobLike(value) && !isFileLike(value)) {
     value = value instanceof Blob
-      ? new File([value], 'blob')
-      : new FileLike(value, 'blob')
+      ? new File([value], 'blob', value)
+      : new FileLike(value, 'blob', value)
   }
 
   // 4. If value is (now) a File object and filename is given, then set value to a
@@ -258,8 +279,8 @@ function makeEntry (name, value, filename) {
   // creating one more File instance doesn't make much sense....
   if (isFileLike(value) && filename != null) {
     value = value instanceof File
-      ? new File([value], filename)
-      : new FileLike(value, filename)
+      ? new File([value], filename, value)
+      : new FileLike(value, filename, value)
   }
 
   // 5. Set entry’s value to value.
@@ -269,4 +290,18 @@ function makeEntry (name, value, filename) {
   return entry
 }
 
-module.exports = { FormData: globalThis.FormData ?? FormData }
+function * makeIterable (entries, type) {
+  // The value pairs to iterate over are this’s entry list’s entries
+  // with the key being the name and the value being the value.
+  for (const { name, value } of entries) {
+    if (type === 'entries') {
+      yield [name, value]
+    } else if (type === 'values') {
+      yield value
+    } else {
+      yield name
+    }
+  }
+}
+
+module.exports = { FormData }
