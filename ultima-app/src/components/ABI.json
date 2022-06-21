@@ -1,0 +1,12 @@
+{
+    "type": "function",
+    "name": "getBalance",
+    "constant":true,
+    "stateMutability": "view",
+    "payable":false, "inputs": [
+      { "type": "address", "name": "_tokenContractAddress"}
+    ],
+    "outputs": [
+      { "type": "uint256"}
+    ]
+  }

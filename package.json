@@ -2,8 +2,7 @@
   "name": "dojo-blog",
   "version": "0.1.0",
   "private": true,
-  "Home":".",
-
+  "Home": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -12,6 +11,7 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "solc": "^0.8.15",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

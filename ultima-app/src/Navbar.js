@@ -7,16 +7,16 @@ const Navbar = () => {
       <h1>Ultima Trading Bot</h1>
       <div className="links">
         <Link to="/">Home</Link>
-        <Link to="/create" style={{ 
+        <Link to="/myWallet" style={{ 
           color: 'white', 
           backgroundColor: '#f1356d',
           borderRadius: '8px' 
         }}>My wallet</Link>
-        <Link to="/create" style={{ 
+        <Link to="/transactions" style={{ 
           color: 'white', 
           backgroundColor: '#f1356d',
           borderRadius: '8px' 
-        }}>Transection</Link>
+        }}>Transaction</Link>
         </div>
     </nav>
     

@@ -5,42 +5,62 @@ import { BrowserRouter ,Routes, Route } from "react-router-dom";
 import Create from './Create';
 import BlogDetails from './BlogDetails';
 import NotFound from './NotFound';
+import Contract from "./components/Contract"
+import { Display } from "./components/Display";
+import { WagmiConfig, createClient, defaultChains, configureChains } from 'wagmi'
+import { alchemyProvider } from 'wagmi/providers/alchemy'
+import { publicProvider } from 'wagmi/providers/public'
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
+import { render, screen } from '@testing-library/react'
 
+
+const alchemyId = process.env.ALCHEMY_ID
+
+// Configure chains & providers with the Alchemy provider.
+// Two popular providers are Alchemy (alchemy.com) and Infura (infura.io)
+const { chains, provider, webSocketProvider } = configureChains(defaultChains, [
+  alchemyProvider({ alchemyId }),
+  publicProvider(),
+])
+
+// Set up client
+const client = createClient({
+  autoConnect: true,
+  connectors: [
+    new MetaMaskConnector({ chains }),
+
+  ],
+  provider,
+  webSocketProvider,
+})
 
 
 
 function App() {
   return (
+    <WagmiConfig client={client}>
     <BrowserRouter>
+
+    <Navbar />
+
       <Routes>
-        <Route path="/" element={<Navbar />}>
+        {/* <Route path="/" element={<Navbar />}> */}
           <Route index element={<Home />} />
-          <Route path="create" element={<Create />} />
-          <Route path="/blogs/:id" element={<BlogDetails />} />
+          <Route path="/myWallet" element={<><Create /><Display /></> } />
+          <Route path="/transactions" element={<BlogDetails />} />
           <Route path="*" element={<NotFound />} />
-        </Route>
+        {/* </Route> */}
+        
       </Routes>
-      <div><p><h3><iframe width="560" height="315" src="https://www.youtube.com/embed/9Hv0BQwYlPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></h3></p></div>
+      
 
-
+      
     </BrowserRouter>
-   
-
-    
-
-   
-
-
-
-
-
-
-
-   
+    </WagmiConfig>
+  
 
   );
 }
-
 
 
 export default App;

@@ -107,3 +107,12 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:40vh;  
+  display: block;
+  margin: 0 auto;
+}
