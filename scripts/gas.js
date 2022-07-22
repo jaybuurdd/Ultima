@@ -1,10 +1,10 @@
-const hre = require("hardhat");
-const fs = require("fs");
-require("dotenv").config();
+const hre = require("hardhat"); 
+const fs = require("fs");// filesystem reader
+require("dotenv").config();// p. keys and configurtaion file set
 
 let config,ultima,owner;
 const network = hre.network.name;
-if (network === 'boba') config = require('./../config/boba.json');
+if (network === 'boba') config = require('./../config/boba.json');// set network 
 
 
 const main = async () => {

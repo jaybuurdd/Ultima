@@ -80,17 +80,17 @@ contract Ultima is Ownable {
     }
 
     /**
-        Makes a trade.
+        Makes arbitrage trade between two exachanges.
     */
     function dualDexTrade(address _router1, address _router2, address _token1, address _token2, uint256 _amount) external onlyOwner{
-        uint startBalance = IERC20(_token1).balanceOf(address(this));
-        uint token2InitialBalance = IERC20(_token2).balanceOf(address(this));
-        swap(_router1, _token1, _token2, _amount);
-        uint token2Balance = IERC20(_token2).balanceOf(address(this));
-        uint tradeableAmount = token2Balance - token2InitialBalance;
-        swap(_router2,_token2, _token1, tradeableAmount);
-        uint endBalance = IERC20(_token1).balanceOf(address(this));
-        require(endBalance > startBalance, "Trade Reverted! No profit could be made.");
+        uint startBalance = IERC20(_token1).balanceOf(address(this));//get starting balance for token 1
+        uint token2InitialBalance = IERC20(_token2).balanceOf(address(this));// get starting balance of token 2
+        swap(_router1, _token1, _token2, _amount);// exchange 1 swap base asset for token (buy low)
+        uint token2Balance = IERC20(_token2).balanceOf(address(this));// balance of token 2
+        uint tradeableAmount = token2Balance - token2InitialBalance;//
+        swap(_router2,_token2, _token1, tradeableAmount);// exchange 2 swap token to base asset (sell high)
+        uint endBalance = IERC20(_token1).balanceOf(address(this));// get ending balance of base asset
+        require(endBalance > startBalance, "Trade Reverted! No profit could be made.");// if ending balance is not greater than initial balance revert trade
     }
 
         // function estimateTriDexTrade(address _router1, address _router2, address _router3, address _token1, address _token2, address _token3, uint256 _amount) external view returns (uint256) {
@@ -102,7 +102,7 @@ contract Ultima is Ownable {
 
 	    // }
 
-        function getBalance (address _tokenContractAddress) external view returns (uint256) {
+        function getBalance (address _tokenContractAddress) external view returns (uint256) {// get balance on 
             
             uint balance = IERC20(_tokenContractAddress).balanceOf(address(this));
             return balance;
@@ -111,13 +111,13 @@ contract Ultima is Ownable {
 
         function recoverEth() external onlyOwner {
          
-            payable(msg.sender).transfer(address(this).balance);
+            payable(msg.sender).transfer(address(this).balance);// 
 
         }
 
         function recoverTokens(address tokenAddress) external onlyOwner{
             IERC20 token = IERC20(tokenAddress);
-            token.transfer(msg.sender, token.balanceOf(address(this)));
+            token.transfer(msg.sender, token.balanceOf(address(this)));// transfer from contract to wallet
         }
 
 }
