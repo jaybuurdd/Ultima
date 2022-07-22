@@ -4,17 +4,17 @@ require("dotenv").config();
 
 let config,ultima,owner,inTrade,balances;
 const network = hre.network.name;
-if (network === 'boba') config = require('./../config/boba.json');
+if (network === 'boba') config = require('./../config/boba.json');// set configuration for boba network
 
 
-console.log(`Loaded ${config.routes.length} routes`);
+console.log(`Loaded ${config.routes.length} routes`);// number of routes loaded (from config.json)
 
 const main = async () => {
-  await setup();
+  await setup();// wait for setup to finish
   // Scale when using own node
   //[0,0,0,0,0,0,0,0,0].forEach(async (v,i) => {
   //  await new Promise(r => setTimeout(r, i*1000));
-  //  await lookForDualTrade();
+  //  await lookForDualTrade();+
   //});
   await lookForDualTrade();
 }
